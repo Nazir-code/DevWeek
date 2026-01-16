@@ -3,36 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conférenciers - Club de Technologie Communautaire</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>DEVWEEK – Conférenciers et Experts</title>
+    <link rel="stylesheet" href="css/devweek.css">
 </head>
 <body>
-    <!-- Barre de Navigation -->
-    <nav class="navbar">
+    <!-- Navigation Bar -->
+    <nav>
         <div class="nav-container">
-            <div class="nav-logo">
-                <h2>CTC</h2>
-                <span>Club de Technologie Communautaire</span>
+            <div class="logo">
+                <span class="logo-text">DEVWEEK</span>
+                <span class="logo-tagline">Code • Learn • Build • Connect</span>
             </div>
-            <div class="nav-menu" id="navMenu">
-                <a href="index.html" class="nav-link">Accueil</a>
-                <a href="programs.html" class="nav-link">Programmes</a>
-                <a href="speakers.html" class="nav-link active">Conférenciers</a>
-                <a href="events.html" class="nav-link">Événements</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-            </div>
-            <div class="hamburger" id="hamburger">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="programs.html" class="nav-link">Programmes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="speakers.html" class="nav-link active">Conférenciers</a>
+                </li>
+                <li class="nav-item">
+                    <a href="events.html" class="nav-link">Événements</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <button class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
-    <!-- En-tête de Page -->
-    <section class="page-header fade-in">
-        <h1>Rencontrez Nos Conférenciers</h1>
-        <p>Apprenez des leaders et innovateurs de l'industrie</p>
+    <!-- Page Header -->
+    <section class="hero" style="min-height: 50vh; margin-top: 60px; padding: 80px var(--spacing-md) var(--spacing-xl);">
+        <div class="container" style="text-align: center;">
+            <h1 class="hero-title slide-down" style="margin-bottom: var(--spacing-md);">Experts & Conférenciers</h1>
+            <p class="hero-subtitle fade-in" style="margin-bottom: 0;">Rencontrez les leaders de l'industrie tech</p>
+        </div>
     </section>
 
     <!-- Section Conférenciers -->
@@ -170,37 +182,44 @@
         </div>
     </section>
 
-    <!-- Pied de Page -->
-    <footer class="footer">
+    <!-- Footer -->
+    <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>Club de Technologie Communautaire</h4>
-                <p>Construire l'avenir de la technologie, ensemble.</p>
+                <h3>DEVWEEK</h3>
+                <p>La Semaine des Développeurs - Code • Learn • Build • Connect</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" title="Twitter" target="_blank">𝕏</a>
+                    <a href="#" class="social-link" title="Discord" target="_blank">💬</a>
+                    <a href="#" class="social-link" title="LinkedIn" target="_blank">in</a>
+                    <a href="#" class="social-link" title="GitHub" target="_blank">⚙️</a>
+                </div>
             </div>
             <div class="footer-section">
-                <h4>Liens Rapides</h4>
-                <ul>
+                <h3>Navigation</h3>
+                <ul class="footer-links">
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="programs.html">Programmes</a></li>
                     <li><a href="speakers.html">Conférenciers</a></li>
                     <li><a href="events.html">Événements</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h4>Connectez-vous</h4>
-                <ul>
-                    <li><a href="#" target="_blank">Twitter</a></li>
-                    <li><a href="#" target="_blank">Discord</a></li>
-                    <li><a href="#" target="_blank">LinkedIn</a></li>
-                    <li><a href="contact.html">Nous Contacter</a></li>
+                <h3>Contact</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@devweek.com">info@devweek.com</a></li>
+                    <li><a href="#">+33 1 23 45 67 89</a></li>
+                    <li><a href="#">Paris, France</a></li>
+                    <li><a href="contact.html">Formulaire de Contact</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Club de Technologie Communautaire. Tous droits réservés.</p>
+            <p>&copy; 2026 DEVWEEK – La Semaine des Développeurs. Tous droits réservés.</p>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/devweek.js"></script>
 </body>
 </html>

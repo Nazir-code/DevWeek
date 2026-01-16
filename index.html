@@ -3,125 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Club de Technologie Communautaire - Accueil</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>DEVWEEK – La Semaine des Développeurs</title>
+    <link rel="stylesheet" href="css/devweek.css">
 </head>
 <body>
-    <!-- Barre de Navigation -->
-    <nav class="navbar">
+    <!-- Navigation Bar -->
+    <nav>
         <div class="nav-container">
-            <div class="nav-logo">
-                <h2>DevWeek</h2>
+            <div class="logo">
+                <span class="logo-text">DEVWEEK</span>
+                <span class="logo-tagline">Code • Learn • Build • Connect</span>
             </div>
-            <div class="nav-menu" id="navMenu">
-                <a href="index.html" class="nav-link active">Accueil</a>
-                <a href="programs.html" class="nav-link">Programmes</a>
-                <a href="speakers.html" class="nav-link">Conférenciers</a>
-                <a href="events.html" class="nav-link">Événements</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <button><a href="">S'inscrire</a></button>
-            </div>
-            <div class="hamburger" id="hamburger">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="programs.html" class="nav-link">Programmes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="speakers.html" class="nav-link">Conférenciers</a>
+                </li>
+                <li class="nav-item">
+                    <a href="events.html" class="nav-link">Événements</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <button class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
-    <!-- Section Héros -->
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content fade-in">
-            <h1>Bienvenue a la DevWeek</h1>
-            <p class="hero-subtitle">Où l'innovation rencontre la collaboration</p>
-            <a href="inscription.html" class="btn btn-primary">Commencez votre parcours</a>
-        </div>
-        <div class="hero-background"></div>
-    </section>
-
-    <!-- Section À Propos -->
-    <section class="about slide-up">
+        <div class="gradient-animate"></div>
+        <div class="gradient-animate"></div>
         <div class="container">
-            <h2>À Propos du CTC</h2>
-            <p>
-                Le Club de Technologie Communautaire est une communauté dynamique de développeurs, de concepteurs 
-                et d'enthousiastes de la technologie dédiés à l'apprentissage, à la collaboration et à la création 
-                de projets extraordinaires ensemble. Rejoignez-nous pour des hackathons, des ateliers et des événements de réseautage.
-            </p>
-        </div>
-    </section>
-
-    <!-- Section Mises en Avant -->
-    <section class="highlights">
-        <div class="container">
-            <div class="highlights-grid">
-                <!-- Carte Hackathon -->
-                <div class="highlight-card slide-up" style="--delay: 0.1s">
-                    <div class="card-icon">🚀</div>
-                    <h3>Programmes Hackathon</h3>
-                    <p>Participez à des hackathons passionnants et relevez des défis avec des problèmes réels.</p>
-                    <a href="programs.html" class="card-link">En Savoir Plus →</a>
-                </div>
-
-                <!-- Carte Conférenciers -->
-                <div class="highlight-card slide-up" style="--delay: 0.2s">
-                    <div class="card-icon">💬</div>
-                    <h3>Conférenciers de l'Industrie</h3>
-                    <p>Apprenez des professionnels expérimentés et des innovateurs de l'industrie technologique.</p>
-                    <a href="speakers.html" class="card-link">Voir les Conférenciers →</a>
-                </div>
-
-                <!-- Carte Événements -->
-                <div class="highlight-card slide-up" style="--delay: 0.3s">
-                    <div class="card-icon">📅</div>
-                    <h3>Événements Communautaires</h3>
-                    <p>Participez à nos réunions régulières, ateliers et séances de réseautage.</p>
-                    <a href="events.html" class="card-link">Voir les Événements →</a>
+            <div class="hero-content">
+                <h1 class="hero-title slide-down">DEVWEEK</h1>
+                <p class="hero-subtitle fade-in">La Semaine des Développeurs</p>
+                <p class="hero-tagline fade-in">Code • Learn • Build • Connect</p>
+                <p class="hero-description fade-in">Rejoignez la plus grande communauté de développeurs pour une semaine remplie d'apprentissage, de networking et de défis technologiques.</p>
+                <div class="hero-cta slide-up">
+                    <a href="#" class="btn btn-primary btn-large">S'inscrire Maintenant</a>
+                    <a href="programs.html" class="btn btn-outline btn-large">Voir les Programmes</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Appel à l'Action -->
-    <section class="cta-section slide-up">
-        <div class="cta-content">
-            <h2>Prêt à Rejoindre?</h2>
-            <p>Devenez partie de notre communauté croissante d'innovateurs technologiques</p>
-            <a href="inscription.html" class="btn btn-secondary">S'inscrire Maintenant</a>
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>À Propos de DEVWEEK</h2>
+                <p class="section-subtitle">Une célébration de la communauté des développeurs</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card slide-up" style="--delay: 0.1s">
+                    <div class="card-number">01</div>
+                    <h3>Pour Les Développeurs</h3>
+                    <p>DEVWEEK est un événement créé par des développeurs, pour des développeurs. Hackathons, ateliers, talks inspirants et networking.</p>
+                </div>
+                <div class="about-card slide-up" style="--delay: 0.2s">
+                    <div class="card-number">02</div>
+                    <h3>Apprentissage Continu</h3>
+                    <p>Apprenez les dernières technologies, frameworks et best practices directement des experts de l'industrie.</p>
+                </div>
+                <div class="about-card slide-up" style="--delay: 0.3s">
+                    <div class="card-number">03</div>
+                    <h3>Construire Ensemble</h3>
+                    <p>Collaborez avec d'autres développeurs passionnés, créez des projets incroyables et bâtissez des amitiés durables.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section class="highlights">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Ce qui vous attend</h2>
+                <p class="section-subtitle">Une semaine riche en expériences</p>
+            </div>
+            <div class="highlights-grid">
+                <!-- Hackathon Card -->
+                <div class="feature-card slide-up" style="--delay: 0.1s">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Hackathons</h3>
+                    <p>48 heures de coding intensif. Résolvez des problèmes réels, créez des prototypes innovants et gagnez des prix.</p>
+                    <a href="programs.html" class="card-link">Découvrir →</a>
+                </div>
+
+                <!-- Workshops Card -->
+                <div class="feature-card slide-up" style="--delay: 0.2s">
+                    <div class="feature-icon">🛠️</div>
+                    <h3>Ateliers</h3>
+                    <p>Sessions pratiques et interactives. Apprenez les technologies émergentes et les meilleures pratiques de développement.</p>
+                    <a href="events.html" class="card-link">Voir les ateliers →</a>
+                </div>
+
+                <!-- Speakers Card -->
+                <div class="feature-card slide-up" style="--delay: 0.3s">
+                    <div class="feature-icon">💬</div>
+                    <h3>Conférenciers</h3>
+                    <p>Les plus grands noms de l'industrie. Keynotes inspirantes et sessions de Q&A avec les leaders tech.</p>
+                    <a href="speakers.html" class="card-link">Rencontrer →</a>
+                </div>
+
+                <!-- Networking Card -->
+                <div class="feature-card slide-up" style="--delay: 0.4s">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Networking</h3>
+                    <p>Connectez-vous avec la communauté des développeurs. Trouvez des collaborateurs, des mentors et des amis.</p>
+                    <a href="contact.html" class="card-link">Nous rejoindre →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stat-item fade-in">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Participants</div>
+            </div>
+            <div class="stat-item fade-in" style="--delay: 0.1s">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Conférenciers</div>
+            </div>
+            <div class="stat-item fade-in" style="--delay: 0.2s">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Ateliers</div>
+            </div>
+            <div class="stat-item fade-in" style="--delay: 0.3s">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Jours</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content slide-up">
+                <h2>Vous êtes Prêt?</h2>
+                <p>Rejoignez la plus grande communauté de développeurs de l'année</p>
+                <a href="#" class="btn btn-primary btn-large">S'inscrire Maintenant</a>
+            </div>
         </div>
     </section>
 
     <!-- Pied de Page -->
-    <footer class="footer">
+    <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>Club de Technologie Communautaire</h4>
-                <p>Construire l'avenir de la technologie, ensemble.</p>
+                <h3>DEVWEEK</h3>
+                <p>La Semaine des Développeurs - Code • Learn • Build • Connect</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" title="Twitter" target="_blank">𝕏</a>
+                    <a href="#" class="social-link" title="Discord" target="_blank">💬</a>
+                    <a href="#" class="social-link" title="LinkedIn" target="_blank">in</a>
+                    <a href="#" class="social-link" title="GitHub" target="_blank">⚙️</a>
+                </div>
             </div>
             <div class="footer-section">
-                <h4>Liens Rapides</h4>
-                <ul>
+                <h3>Navigation</h3>
+                <ul class="footer-links">
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="programs.html">Programmes</a></li>
                     <li><a href="speakers.html">Conférenciers</a></li>
                     <li><a href="events.html">Événements</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h4>Connectez-vous</h4>
-                <ul>
-                    <li><a href="#" target="_blank">Twitter</a></li>
-                    <li><a href="#" target="_blank">Discord</a></li>
-                    <li><a href="#" target="_blank">LinkedIn</a></li>
-                    <li><a href="contact.html">Nous Contacter</a></li>
+                <h3>Contact</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@devweek.com">info@devweek.com</a></li>
+                    <li><a href="#">+33 1 23 45 67 89</a></li>
+                    <li><a href="#">Paris, France</a></li>
+                    <li><a href="contact.html">Formulaire de Contact</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Club de Technologie Communautaire. Tous droits réservés.</p>
+            <p>&copy; 2026 DEVWEEK – La Semaine des Développeurs. Tous droits réservés.</p>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/devweek.js"></script>
 </body>
 </html>

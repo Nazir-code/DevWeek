@@ -3,225 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programmes Hackathon - Club de Technologie Communautaire</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>DEVWEEK – Programmes et Hackathons</title>
+    <link rel="stylesheet" href="css/devweek.css">
 </head>
 <body>
-    <!-- Barre de Navigation -->
-    <nav class="navbar">
+    <!-- Navigation Bar -->
+    <nav>
         <div class="nav-container">
-            <div class="nav-logo">
-                <h2>CTC</h2>
-                <span>Club de Technologie Communautaire</span>
+            <div class="logo">
+                <span class="logo-text">DEVWEEK</span>
+                <span class="logo-tagline">Code • Learn • Build • Connect</span>
             </div>
-            <div class="nav-menu" id="navMenu">
-                <a href="index.html" class="nav-link">Accueil</a>
-                <a href="programs.html" class="nav-link active">Programmes</a>
-                <a href="speakers.html" class="nav-link">Conférenciers</a>
-                <a href="events.html" class="nav-link">Événements</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-            </div>
-            <div class="hamburger" id="hamburger">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="programs.html" class="nav-link active">Programmes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="speakers.html" class="nav-link">Conférenciers</a>
+                </li>
+                <li class="nav-item">
+                    <a href="events.html" class="nav-link">Événements</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <button class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
-    <!-- En-tête de Page -->
-    <section class="page-header fade-in">
-        <h1>Programmes Hackathon</h1>
-        <p>Relevez des défis et construisez des projets extraordinaires</p>
+    <!-- Page Header -->
+    <section class="hero" style="min-height: 50vh; margin-top: 60px; padding: 80px var(--spacing-md) var(--spacing-xl);">
+        <div class="container" style="text-align: center;">
+            <h1 class="hero-title slide-down" style="margin-bottom: var(--spacing-md);">Programmes DEVWEEK</h1>
+            <p class="hero-subtitle fade-in" style="margin-bottom: 0;">Relevez des défis technologiques et construisez l'avenir</p>
+        </div>
     </section>
 
-    <!-- Section Programmes -->
-    <section class="programs-section">
+    <!-- Programs Section -->
+    <section style="padding: var(--spacing-2xl) var(--spacing-md);">
         <div class="container">
-            <div class="programs-grid">
-                <!-- Programme 1 -->
+            <div class="section-header fade-in">
+                <h2>Hackathons et Ateliers</h2>
+                <p class="section-subtitle">Choisissez votre domaine d'expertise et participez aux défis les plus innovants</p>
+            </div>
+
+            <div class="card-grid">
+                <!-- Program 1 -->
                 <div class="program-card slide-up" style="--delay: 0.1s">
-                    <div class="program-icon">💻</div>
-                    <h3>Défi Développement Web</h3>
-                    <p class="program-description">
-                        Construisez une application web moderne en utilisant HTML, CSS et JavaScript. 
-                        Créez des expériences interactives et réactives pour les utilisateurs du monde entier.
-                    </p>
-                    <div class="program-info">
-                        <span class="badge">Durée: 48 heures</span>
+                    <div class="card-header">
+                        <div class="feature-icon">💻</div>
+                        <h3 class="card-title">Développement Web</h3>
                     </div>
-                    <div class="technologies">
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">React</span>
+                    <div class="card-body">
+                        <p class="card-description">
+                            Construisez des applications web modernes avec React, Vue.js ou Angular. 
+                            48 heures pour créer une solution web innovante.
+                        </p>
+                        <div class="card-tags">
+                            <span class="tag">Frontend</span>
+                            <span class="tag">Backend</span>
+                            <span class="tag">Full-Stack</span>
+                        </div>
                     </div>
-                    <a href="#" class="btn btn-primary btn-small">En Savoir Plus</a>
                 </div>
 
-                <!-- Programme 2 -->
+                <!-- Program 2 -->
                 <div class="program-card slide-up" style="--delay: 0.2s">
-                    <div class="program-icon">📱</div>
-                    <h3>Sprint Développement Mobile</h3>
-                    <p class="program-description">
-                        Développez des applications mobiles multi-plateforme. Apprenez Flutter ou React Native 
-                        et déployez votre application sur les magasins.
-                    </p>
-                    <div class="program-info">
-                        <span class="badge">Durée: 72 heures</span>
+                    <div class="card-header">
+                        <div class="feature-icon">📱</div>
+                        <h3 class="card-title">Développement Mobile</h3>
                     </div>
-                    <div class="technologies">
-                        <span class="tech-tag">Flutter</span>
-                        <span class="tech-tag">React Native</span>
-                        <span class="tech-tag">Dart</span>
-                        <span class="tech-tag">JavaScript</span>
+                    <div class="card-body">
+                        <p class="card-description">
+                            Créez des apps mobiles avec Flutter ou React Native. 
+                            72 heures pour déployer votre application sur les stores.
+                        </p>
+                        <div class="card-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">React Native</span>
+                            <span class="tag">Mobile</span>
+                        </div>
                     </div>
-                    <a href="#" class="btn btn-primary btn-small">En Savoir Plus</a>
                 </div>
 
-                <!-- Programme 3 -->
+                <!-- Program 3 -->
                 <div class="program-card slide-up" style="--delay: 0.3s">
-                    <div class="program-icon">🤖</div>
-                    <h3>IA & Apprentissage Automatique</h3>
-                    <p class="program-description">
-                        Construisez des applications intelligentes en utilisant Python, TensorFlow et scikit-learn. 
-                        Explorez les réseaux de neurones et la science des données.
-                    </p>
-                    <div class="program-info">
-                        <span class="badge">Durée: 96 heures</span>
+                    <div class="card-header">
+                        <div class="feature-icon">🤖</div>
+                        <h3 class="card-title">IA & Apprentissage Machine</h3>
                     </div>
-                    <div class="technologies">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">TensorFlow</span>
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">Pandas</span>
+                    <div class="card-body">
+                        <p class="card-description">
+                            Construisez des solutions IA avec Python, TensorFlow et PyTorch. 
+                            Explorez les réseaux de neurones et la vision par ordinateur.
+                        </p>
+                        <div class="card-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">Data Science</span>
+                        </div>
                     </div>
-                    <a href="#" class="btn btn-primary btn-small">En Savoir Plus</a>
                 </div>
 
-                <!-- Programme 4 -->
+                <!-- Program 4 -->
                 <div class="program-card slide-up" style="--delay: 0.4s">
-                    <div class="program-icon">🔐</div>
-                    <h3>Bataille de Cybersécurité</h3>
-                    <p class="program-description">
-                        Testez vos compétences en sécurité dans un événement CTF (Capture The Flag) compétitif. 
-                        Résolvez des défis et apprenez le hacking éthique.
-                    </p>
-                    <div class="program-info">
-                        <span class="badge">Durée: 48 heures</span>
+                    <div class="card-header">
+                        <div class="feature-icon">🔐</div>
+                        <h3 class="card-title">Cybersécurité (CTF)</h3>
                     </div>
-                    <div class="technologies">
-                        <span class="tech-tag">Linux</span>
-                        <span class="tech-tag">Réseau</span>
-                        <span class="tech-tag">Cryptographie</span>
-                        <span class="tech-tag">Python</span>
+                    <div class="card-body">
+                        <p class="card-description">
+                            Participez à un Capture The Flag compétitif. 
+                            48 heures pour résoudre des défis de sécurité.
+                        </p>
+                        <div class="card-tags">
+                            <span class="tag">Sécurité</span>
+                            <span class="tag">Linux</span>
+                            <span class="tag">Hacking</span>
+                        </div>
                     </div>
-                    <a href="#" class="btn btn-primary btn-small">En Savoir Plus</a>
                 </div>
 
-                <!-- Programme 5 -->
+                <!-- Program 5 -->
                 <div class="program-card slide-up" style="--delay: 0.5s">
-                    <div class="program-icon">📊</div>
-                    <h3>Piste Analyse de Données</h3>
-                    <p class="program-description">
-                        Analysez des ensembles de données réels et créez des visualisations convaincantes. 
-                        Apprenez la narration de données et l'intelligence commerciale.
-                    </p>
-                    <div class="program-info">
-                        <span class="badge">Durée: 60 heures</span>
+                    <div class="card-header">
+                        <div class="feature-icon">📊</div>
+                        <h3 class="card-title">Analyse de Données</h3>
                     </div>
-                    <div class="technologies">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">SQL</span>
-                        <span class="tech-tag">Tableau</span>
-                        <span class="tech-tag">Power BI</span>
+                    <div class="card-body">
+                        <p class="card-description">
+                            Analysez des données réelles et créez des visualisations. 
+                            60 heures pour raconter une histoire avec les données.
+                        </p>
+                        <div class="card-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Visualisation</span>
+                        </div>
                     </div>
-                    <a href="#" class="btn btn-primary btn-small">En Savoir Plus</a>
                 </div>
 
-                <!-- Programme 6 -->
+                <!-- Program 6 -->
                 <div class="program-card slide-up" style="--delay: 0.6s">
-                    <div class="program-icon">☁️</div>
-                    <h3>Cloud & DevOps</h3>
-                    <p class="program-description">
-                        Maîtrisez les plates-formes cloud et les pipelines de déploiement. Déployez des applications 
-                        scalables sur AWS, Azure ou Google Cloud.
-                    </p>
-                    <div class="program-info">
-                        <span class="badge">Durée: 72 heures</span>
+                    <div class="card-header">
+                        <div class="feature-icon">☁️</div>
+                        <h3 class="card-title">Cloud & DevOps</h3>
                     </div>
-                    <div class="technologies">
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">Kubernetes</span>
-                        <span class="tech-tag">AWS</span>
-                        <span class="tech-tag">CI/CD</span>
+                    <div class="card-body">
+                        <p class="card-description">
+                            Maîtrisez Docker, Kubernetes et AWS. 
+                            72 heures pour déployer des applications scalables.
+                        </p>
+                        <div class="card-tags">
+                            <span class="tag">Docker</span>
+                            <span class="tag">Kubernetes</span>
+                            <span class="tag">AWS</span>
+                        </div>
                     </div>
-                    <a href="#" class="btn btn-primary btn-small">En Savoir Plus</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Étapes de Participation -->
-    <section class="participation slide-up">
+    <!-- Participation Steps -->
+    <section style="padding: var(--spacing-2xl) var(--spacing-md); background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(139, 92, 246, 0.05));">
         <div class="container">
-            <h2>Comment Participer</h2>
-            <div class="steps-timeline">
-                <div class="step" style="--step: 1">
-                    <div class="step-number">1</div>
-                    <h3>S'inscrire</h3>
-                    <p>Inscrivez-vous et choisissez votre programme hackathon préféré</p>
+            <div class="section-header fade-in">
+                <h2>Comment Participer</h2>
+                <p class="section-subtitle">Suivez ces 4 étapes simples pour rejoindre la DEVWEEK</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-lg); margin-top: var(--spacing-xl);">
+                <div class="slide-up" style="--delay: 0.1s; text-align: center; padding: var(--spacing-lg); background: rgba(30, 41, 59, 0.5); border-radius: var(--radius-lg); border: 1px solid rgba(99, 102, 241, 0.2);">
+                    <div style="font-size: 3rem; font-weight: 800; color: var(--primary); margin-bottom: var(--spacing-md);">01</div>
+                    <h3 style="margin-bottom: var(--spacing-md);">S'inscrire</h3>
+                    <p style="color: var(--text-secondary);">Inscrivez-vous et choisissez votre programme préféré</p>
                 </div>
-                <div class="step" style="--step: 2">
-                    <div class="step-number">2</div>
-                    <h3>Formez une Équipe</h3>
-                    <p>Construisez une équipe ou participez en tant qu'individu</p>
+
+                <div class="slide-up" style="--delay: 0.2s; text-align: center; padding: var(--spacing-lg); background: rgba(30, 41, 59, 0.5); border-radius: var(--radius-lg); border: 1px solid rgba(99, 102, 241, 0.2);">
+                    <div style="font-size: 3rem; font-weight: 800; color: var(--primary); margin-bottom: var(--spacing-md);">02</div>
+                    <h3 style="margin-bottom: var(--spacing-md);">Former une Équipe</h3>
+                    <p style="color: var(--text-secondary);">Trouvez des partenaires ou participez seul</p>
                 </div>
-                <div class="step" style="--step: 3">
-                    <div class="step-number">3</div>
-                    <h3>Construire & Créer</h3>
-                    <p>Travaillez sur votre projet avec soutien au mentorat</p>
+
+                <div class="slide-up" style="--delay: 0.3s; text-align: center; padding: var(--spacing-lg); background: rgba(30, 41, 59, 0.5); border-radius: var(--radius-lg); border: 1px solid rgba(99, 102, 241, 0.2);">
+                    <div style="font-size: 3rem; font-weight: 800; color: var(--primary); margin-bottom: var(--spacing-md);">03</div>
+                    <h3 style="margin-bottom: var(--spacing-md);">Créer & Construire</h3>
+                    <p style="color: var(--text-secondary);">Développez votre projet avec un support mentoring</p>
                 </div>
-                <div class="step" style="--step: 4">
-                    <div class="step-number">4</div>
-                    <h3>Présenter & Gagner</h3>
-                    <p>Présentez votre projet et concourez pour des prix</p>
+
+                <div class="slide-up" style="--delay: 0.4s; text-align: center; padding: var(--spacing-lg); background: rgba(30, 41, 59, 0.5); border-radius: var(--radius-lg); border: 1px solid rgba(99, 102, 241, 0.2);">
+                    <div style="font-size: 3rem; font-weight: 800; color: var(--primary); margin-bottom: var(--spacing-md);">04</div>
+                    <h3 style="margin-bottom: var(--spacing-md);">Présenter & Gagner</h3>
+                    <p style="color: var(--text-secondary);">Présentez et concourez pour des prix</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pied de Page -->
-    <footer class="footer">
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content slide-up">
+                <h2>Prêt à Commencer?</h2>
+                <p>Rejoignez les meilleures compétitions technologiques de l'année</p>
+                <a href="#" class="btn btn-primary btn-large">S'inscrire Maintenant</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>Club de Technologie Communautaire</h4>
-                <p>Construire l'avenir de la technologie, ensemble.</p>
+                <h3>DEVWEEK</h3>
+                <p>La Semaine des Développeurs - Code • Learn • Build • Connect</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" title="Twitter" target="_blank">𝕏</a>
+                    <a href="#" class="social-link" title="Discord" target="_blank">💬</a>
+                    <a href="#" class="social-link" title="LinkedIn" target="_blank">in</a>
+                    <a href="#" class="social-link" title="GitHub" target="_blank">⚙️</a>
+                </div>
             </div>
             <div class="footer-section">
-                <h4>Liens Rapides</h4>
-                <ul>
+                <h3>Navigation</h3>
+                <ul class="footer-links">
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="programs.html">Programmes</a></li>
                     <li><a href="speakers.html">Conférenciers</a></li>
                     <li><a href="events.html">Événements</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h4>Connectez-vous</h4>
-                <ul>
-                    <li><a href="#" target="_blank">Twitter</a></li>
-                    <li><a href="#" target="_blank">Discord</a></li>
-                    <li><a href="#" target="_blank">LinkedIn</a></li>
-                    <li><a href="contact.html">Nous Contacter</a></li>
+                <h3>Contact</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@devweek.com">info@devweek.com</a></li>
+                    <li><a href="#">+33 1 23 45 67 89</a></li>
+                    <li><a href="#">Paris, France</a></li>
+                    <li><a href="contact.html">Formulaire de Contact</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Club de Technologie Communautaire. Tous droits réservés.</p>
+            <p>&copy; 2026 DEVWEEK – La Semaine des Développeurs. Tous droits réservés.</p>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/devweek.js"></script>
 </body>
 </html>
