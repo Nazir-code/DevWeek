@@ -1,0 +1,397 @@
+/* ========================================
+   TECH COMMUNITY CLUB - STYLES
+   Modern, responsive design with tech theme
+   ======================================== */
+
+/* CSS Variables for easy customization */
+:root {
+    --primary-color: #6366f1;      /* Modern indigo */
+    --secondary-color: #8b5cf6;    /* Purple accent */
+    --success-color: #10b981;      /* Green */
+    --danger-color: #ef4444;       /* Red */
+    --light-bg: #f8fafc;           /* Light background */
+    --dark-text: #1e293b;          /* Dark text */
+    --border-color: #cbd5e1;       /* Light border */
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* ========== RESET & BASE STYLES ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: var(--dark-text);
+    padding: 20px;
+}
+
+/* ========== CONTAINER & LAYOUT ========== */
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.95;
+    font-weight: 300;
+}
+
+.main-content {
+    padding: 40px 30px;
+}
+
+/* ========== FORM STYLES ========== */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--dark-text);
+    display: block;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: var(--transition);
+    background: white;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* ========== CHECKBOX STYLES ========== */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    padding: 10px 0;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.checkbox-item label {
+    cursor: pointer;
+    font-weight: 500;
+    margin: 0;
+    user-select: none;
+}
+
+/* ========== ERROR MESSAGES ========== */
+.error-message {
+    color: var(--danger-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+    min-height: 20px;
+    display: block;
+}
+
+input.error,
+select.error,
+textarea.error {
+    border-color: var(--danger-color) !important;
+    background-color: #fef2f2;
+}
+
+/* ========== BUTTONS ========== */
+.submit-btn,
+.reset-btn {
+    padding: 14px 28px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 16px 32px;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.reset-btn {
+    background: var(--primary-color);
+    color: white;
+    margin-top: 20px;
+}
+
+.reset-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* ========== FORM NOTE ========== */
+.form-note {
+    text-align: center;
+    color: #64748b;
+    font-size: 0.85rem;
+    margin-top: 10px;
+}
+
+/* ========== SUCCESS PAGE STYLES ========== */
+.success-container {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.success-card {
+    background: white;
+    border-radius: 16px;
+    padding: 60px 30px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    animation: successAnimation 0.6s ease-out;
+}
+
+@keyframes successAnimation {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 30px;
+    background: linear-gradient(135deg, var(--success-color) 0%, #059669 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    animation: bounce 0.6s ease-out;
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.success-card h2 {
+    font-size: 2rem;
+    color: var(--dark-text);
+    margin-bottom: 15px;
+}
+
+.success-message {
+    font-size: 1.2rem;
+    color: var(--dark-text);
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+#successName {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.success-details {
+    color: #64748b;
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+
+.registered-info {
+    background: var(--light-bg);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border-left: 4px solid var(--success-color);
+}
+
+.registered-info p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+#memberCount {
+    color: var(--success-color);
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+/* ========== UTILITY CLASSES ========== */
+.hidden {
+    display: none !important;
+}
+
+/* ========== RESPONSIVE DESIGN (Mobile-First) ========== */
+@media (max-width: 640px) {
+    body {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 30px 20px;
+    }
+
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .main-content {
+        padding: 25px 20px;
+    }
+
+    .checkbox-group {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+    }
+
+    .form-container {
+        gap: 20px;
+    }
+
+    .submit-btn {
+        padding: 14px 24px;
+        font-size: 1rem;
+    }
+
+    .success-card {
+        padding: 40px 20px;
+    }
+
+    .success-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2.5rem;
+    }
+
+    .success-card h2 {
+        font-size: 1.6rem;
+    }
+
+    .success-message {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-group label {
+        font-size: 0.95rem;
+    }
+
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+}

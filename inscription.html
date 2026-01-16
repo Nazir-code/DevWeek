@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club de Technologie Communautaire - Inscription</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Formulaire d'Inscription Principal -->
+    <div id="registrationPage" class="container">
+        <header class="header">
+            <h1>Club de Technologie Communautaire</h1>
+            <p class="subtitle">Rejoignez notre communauté et développez vos compétences technologiques</p>
+        </header>
+
+        <main class="main-content">
+            <form id="registrationForm" class="form-container">
+                <!-- Nom Complet -->
+                <div class="form-group">
+                    <label for="fullName">Nom Complet *</label>
+                    <input 
+                        type="text" 
+                        id="fullName" 
+                        name="fullName" 
+                        placeholder="Entrez votre nom complet"
+                        required
+                    >
+                    <span class="error-message" id="nameError"></span>
+                </div>
+
+                <!-- Adresse Email -->
+                <div class="form-group">
+                    <label for="email">Adresse Email *</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="votre@email.com"
+                        required
+                    >
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
+                <!-- Numéro WhatsApp -->
+                <div class="form-group">
+                    <label for="whatsapp">Numéro WhatsApp *</label>
+                    <input 
+                        type="tel" 
+                        id="whatsapp" 
+                        name="whatsapp" 
+                        placeholder="+55 (XX) 9XXXX-XXXX"
+                        required
+                    >
+                    <span class="error-message" id="whatsappError"></span>
+                </div>
+
+                <!-- Niveau d'Expérience -->
+                <div class="form-group">
+                    <label for="level">Niveau d'Expérience *</label>
+                    <select id="level" name="level" required>
+                        <option value="">-- Sélectionnez votre niveau --</option>
+                        <option value="Beginner">Débutant</option>
+                        <option value="Intermediate">Intermédiaire</option>
+                        <option value="Advanced">Avancé</option>
+                    </select>
+                    <span class="error-message" id="levelError"></span>
+                </div>
+
+                <!-- Intérêts Technologiques (Cases à cocher) -->
+                <div class="form-group">
+                    <label>Intérêts Technologiques * (sélectionnez au moins un)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="web" name="interests" value="Web">
+                            <label for="web">Développement Web</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="mobile" name="interests" value="Mobile">
+                            <label for="mobile">Développement Mobile</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="ai" name="interests" value="AI">
+                            <label for="ai">IA & Apprentissage Automatique</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="cybersecurity" name="interests" value="Cybersecurity">
+                            <label for="cybersecurity">Cybersécurité</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="data" name="interests" value="Data">
+                            <label for="data">Science des Données</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="other" name="interests" value="Other">
+                            <label for="other">Autre</label>
+                        </div>
+                    </div>
+                    <span class="error-message" id="interestsError"></span>
+                </div>
+
+                <!-- Motivation (Textarea) -->
+                <div class="form-group">
+                    <label for="motivation">Qu'est-ce qui vous motive à rejoindre le CTC? *</label>
+                    <textarea 
+                        id="motivation" 
+                        name="motivation" 
+                        rows="4" 
+                        placeholder="Dites-nous pourquoi vous voulez rejoindre notre communauté..."
+                        required
+                    ></textarea>
+                    <span class="error-message" id="motivationError"></span>
+                </div>
+
+                <!-- Bouton Soumettre -->
+                <button type="submit" class="submit-btn">S'inscrire Maintenant</button>
+                <p class="form-note">* Champs obligatoires</p>
+            </form>
+        </main>
+    </div>
+
+    <!-- Page de Succès -->
+    <div id="successPage" class="success-container hidden">
+        <div class="success-card">
+            <div class="success-icon">✓</div>
+            <h2>Inscription Réussie!</h2>
+            <p class="success-message">Bienvenue au Club de Technologie Communautaire, <span id="successName"></span>!</p>
+            <p class="success-details">Nous avons envoyé une confirmation à votre email.</p>
+            
+            <div class="registered-info">
+                <p><strong>Membres Enregistrés: </strong><span id="memberCount">0</span></p>
+            </div>
+
+            <button class="reset-btn" onclick="resetForm()">Inscrire une Autre Personne</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
