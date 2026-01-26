@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let reconnectInterval;
 
     function connect() {
-        // Assume server runs on port 8080 locally
-        ws = new WebSocket('ws://localhost:8080');
+        // Connect to Render backend
+        ws = new WebSocket('wss://devweek.onrender.com');
 
         ws.onopen = () => {
             console.log('Connected to Chat Server');
