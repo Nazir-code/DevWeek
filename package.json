@@ -4,6 +4,7 @@
   "description": "DEVWEEK is a modern, fully responsive event website for \"The Developer's Week\" - a premier tech event featuring hackathons, workshops, expert talks, and community networking.",
   "main": "script.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
