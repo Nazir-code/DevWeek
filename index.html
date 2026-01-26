@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DEVWEEK – La Semaine des Développeurs</title>
     <link rel="stylesheet" href="css/devweek.css">
+    <link rel="stylesheet" href="css/chat.css">
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <nav>
@@ -48,7 +51,8 @@
                 <h1 class="hero-title slide-down">DEVWEEK</h1>
                 <p class="hero-subtitle fade-in">La Semaine des Développeurs</p>
                 <p class="hero-tagline fade-in">Code • Apprendre • Créer • Connecter</p>
-                <p class="hero-description fade-in">Rejoignez la plus grande communauté de développeurs pour une semaine remplie d'apprentissage, de networking et de défis technologiques.</p>
+                <p class="hero-description fade-in">Rejoignez la plus grande communauté de développeurs pour une semaine
+                    remplie d'apprentissage, de networking et de défis technologiques.</p>
                 <div class="hero-cta slide-up">
                     <a href="#" class="btn btn-primary btn-large">S'inscrire Maintenant</a>
                     <a href="programs.html" class="btn btn-outline btn-large">Voir les Programmes</a>
@@ -68,17 +72,20 @@
                 <div class="about-card slide-up" style="--delay: 0.1s">
                     <div class="card-number">01</div>
                     <h3>Pour Les Développeurs</h3>
-                    <p>DEVWEEK est un événement créé par des développeurs, pour des développeurs. Hackathons, ateliers, talks inspirants et networking.</p>
+                    <p>DEVWEEK est un événement créé par des développeurs, pour des développeurs. Hackathons, ateliers,
+                        talks inspirants et networking.</p>
                 </div>
                 <div class="about-card slide-up" style="--delay: 0.2s">
                     <div class="card-number">02</div>
                     <h3>Apprentissage Continu</h3>
-                    <p>Apprenez les dernières technologies, frameworks et best practices directement des experts de l'industrie.</p>
+                    <p>Apprenez les dernières technologies, frameworks et best practices directement des experts de
+                        l'industrie.</p>
                 </div>
                 <div class="about-card slide-up" style="--delay: 0.3s">
                     <div class="card-number">03</div>
                     <h3>Construire Ensemble</h3>
-                    <p>Collaborez avec d'autres développeurs passionnés, créez des projets incroyables et bâtissez des amitiés durables.</p>
+                    <p>Collaborez avec d'autres développeurs passionnés, créez des projets incroyables et bâtissez des
+                        amitiés durables.</p>
                 </div>
             </div>
         </div>
@@ -96,7 +103,8 @@
                 <div class="feature-card slide-up" style="--delay: 0.1s">
                     <div class="feature-icon">🚀</div>
                     <h3>Hackathons</h3>
-                    <p>48 heures de coding intensif. Résolvez des problèmes réels, créez des prototypes innovants et gagnez des prix.</p>
+                    <p>48 heures de coding intensif. Résolvez des problèmes réels, créez des prototypes innovants et
+                        gagnez des prix.</p>
                     <a href="programs.html" class="card-link">Découvrir →</a>
                 </div>
 
@@ -104,7 +112,8 @@
                 <div class="feature-card slide-up" style="--delay: 0.2s">
                     <div class="feature-icon">🛠️</div>
                     <h3>Ateliers</h3>
-                    <p>Sessions pratiques et interactives. Apprenez les technologies émergentes et les meilleures pratiques de développement.</p>
+                    <p>Sessions pratiques et interactives. Apprenez les technologies émergentes et les meilleures
+                        pratiques de développement.</p>
                     <a href="events.html" class="card-link">Voir les ateliers →</a>
                 </div>
 
@@ -112,7 +121,8 @@
                 <div class="feature-card slide-up" style="--delay: 0.3s">
                     <div class="feature-icon">💬</div>
                     <h3>Conférenciers</h3>
-                    <p>Les plus grands noms de l'industrie. Keynotes inspirantes et sessions de Q&A avec les leaders tech.</p>
+                    <p>Les plus grands noms de l'industrie. Keynotes inspirantes et sessions de Q&A avec les leaders
+                        tech.</p>
                     <a href="speakers.html" class="card-link">Rencontrer →</a>
                 </div>
 
@@ -120,7 +130,8 @@
                 <div class="feature-card slide-up" style="--delay: 0.4s">
                     <div class="feature-icon">🤝</div>
                     <h3>Networking</h3>
-                    <p>Connectez-vous avec la communauté des développeurs. Trouvez des collaborateurs, des mentors et des amis.</p>
+                    <p>Connectez-vous avec la communauté des développeurs. Trouvez des collaborateurs, des mentors et
+                        des amis.</p>
                     <a href="contact.html" class="card-link">Nous rejoindre →</a>
                 </div>
             </div>
@@ -198,6 +209,30 @@
         </div>
     </footer>
 
+    <!-- Chat Widget -->
+    <button class="chat-toggle" id="chatToggle">
+        <span class="icon-open">💬</span>
+        <span class="icon-close">✕</span>
+    </button>
+
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header">
+            <h3>Communauté DEVWEEK</h3>
+            <div class="status-indicator" id="connectionStatus">
+                <span class="status-dot" style="background: #fbbf24; box-shadow: none;"></span>Connexion...
+            </div>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <!-- Messages will appear here -->
+        </div>
+        <div class="chat-footer">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Écrivez un message...">
+            <button class="chat-send" id="sendBtn">➤</button>
+        </div>
+    </div>
+
     <script src="js/devweek.js"></script>
+    <script src="js/chat.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,23 @@
+{
+  "name": "tcc-devweek",
+  "version": "1.0.0",
+  "description": "DEVWEEK is a modern, fully responsive event website for \"The Developer's Week\" - a premier tech event featuring hackathons, workshops, expert talks, and community networking.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nazir-code/DevWeek.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nazir-code/DevWeek/issues"
+  },
+  "homepage": "https://github.com/Nazir-code/DevWeek#readme",
+  "dependencies": {
+    "ws": "^8.19.0"
+  }
+}
