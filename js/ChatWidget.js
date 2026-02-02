@@ -1,4 +1,5 @@
 
+
 const { useState, useEffect, useRef, useLayoutEffect } = React;
 
 // --- Icons ---
@@ -61,7 +62,7 @@ const MessageBubble = ({ message, isMe }) => {
                 {/* Avatar */}
                 <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold shadow-sm flex-shrink-0 ${isMe ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300'
                     }`}>
-                    {isMe ? 'ME' : message.senderId?.substring(5, 7).toUpperCase()}
+                    {isMe ? 'ME' : message.senderId?.substring(0, 2).toUpperCase()}
                 </div>
 
                 {/* Bubble */}
@@ -88,7 +89,11 @@ const ChatWidget = () => {
     const [inputText, setInputText] = useState('');
     const [connectionStatus, setConnectionStatus] = useState('connecting');
     const wsRef = useRef(null);
+
+    // Auth State
     const [userId, setUserId] = useState('');
+    const [hasJoined, setHasJoined] = useState(false);
+    const [usernameInput, setUsernameInput] = useState('');
 
     // User List State
     const [onlineUsers, setOnlineUsers] = useState([]);
@@ -101,16 +106,24 @@ const ChatWidget = () => {
 
     const messagesEndRef = useRef(null);
     const inputRef = useRef(null);
+    const usernameInputRef = useRef(null);
 
-    // Initial Setup
+    // Initial Setup - REMOVED Random ID Generation
+    // useEffect(() => {
+    //     const newUserId = 'user_' + Math.random().toString(36).substr(2, 9);
+    //     setUserId(newUserId);
+    // }, []);
+
+    // Focus username input when opening chat if not joined
     useEffect(() => {
-        const newUserId = 'user_' + Math.random().toString(36).substr(2, 9);
-        setUserId(newUserId);
-    }, []);
+        if (isOpen && !hasJoined && usernameInputRef.current) {
+            setTimeout(() => usernameInputRef.current.focus(), 100);
+        }
+    }, [isOpen, hasJoined]);
 
     // Connect
     useEffect(() => {
-        if (!userId) return;
+        if (!hasJoined || !userId) return;
 
         let reconnectTimeout;
 
@@ -135,6 +148,8 @@ const ChatWidget = () => {
 
                     if (data.type === 'user_list') {
                         setOnlineUsers(data.users || []);
+                    } else if (data.type === 'history') {
+                        setMessages(prev => [...data.messages, ...prev]);
                     } else if (data.type === 'typing') {
                         handleTypingIndicator(data.senderId);
                     } else {
@@ -182,7 +197,17 @@ const ChatWidget = () => {
             }
             if (reconnectTimeout) clearTimeout(reconnectTimeout);
         };
-    }, [userId]);
+    }, [hasJoined, userId]);
+
+    // Join Handler
+    const handleJoin = (e) => {
+        e.preventDefault();
+        const trimmedName = usernameInput.trim();
+        if (trimmedName) {
+            setUserId(trimmedName);
+            setHasJoined(true);
+        }
+    };
 
     // Typing Logic
     const handleTypingIndicator = (senderId) => {
@@ -230,17 +255,17 @@ const ChatWidget = () => {
 
     // Auto-scroll
     useLayoutEffect(() => {
-        if (isOpen && !showUsers && messagesEndRef.current) {
+        if (isOpen && hasJoined && !showUsers && messagesEndRef.current) {
             messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
         }
-    }, [messages, isOpen, showUsers, typingUsers]); // Scroll when typing appears too
+    }, [messages, isOpen, hasJoined, showUsers, typingUsers]); // Scroll when typing appears too
 
     // Focus input
     useEffect(() => {
-        if (isOpen && !showUsers && inputRef.current) {
+        if (isOpen && hasJoined && !showUsers && inputRef.current) {
             setTimeout(() => inputRef.current.focus(), 100);
         }
-    }, [isOpen, showUsers]);
+    }, [isOpen, hasJoined, showUsers]);
 
     const sendMessage = (e) => {
         e.preventDefault();
@@ -286,106 +311,141 @@ const ChatWidget = () => {
             {isOpen && (
                 <div className="fixed bottom-20 right-4 left-4 sm:left-auto w-auto sm:w-96 h-[70vh] sm:h-[500px] bg-gray-900 rounded-2xl shadow-2xl flex flex-col overflow-hidden ring-1 ring-gray-700 animate-fade-in-up origin-bottom-right">
 
-                    {/* Header */}
-                    <div className="bg-gray-800 p-4 flex items-center justify-between border-b border-gray-700 relative z-10">
-                        <div>
-                            <h3 className="text-white font-bold text-lg">Communauté</h3>
-                            <div className="flex items-center gap-2 mt-1">
-                                <span className={`w-2 h-2 rounded-full ${connectionStatus === 'connected' ? 'bg-green-400 animate-pulse' :
-                                    connectionStatus === 'connecting' ? 'bg-yellow-400' : 'bg-red-500'
-                                    }`}></span>
-                                <span className="text-xs text-gray-400">
-                                    {connectionStatus === 'connected' ? 'En ligne' :
-                                        connectionStatus === 'connecting' ? 'Connexion...' : 'Hors ligne'}
-                                </span>
+                    {!hasJoined ? (
+                        // JOIN SCREEN
+                        <div className="flex-1 flex flex-col items-center justify-center p-6 bg-gray-900 text-white">
+                            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mb-6 shadow-lg animate-bounce">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
                             </div>
+                            <h3 className="text-xl font-bold mb-2">Rejoindre la Discussion</h3>
+                            <p className="text-sm text-gray-400 mb-6 text-center">Entrez votre nom ou un pseudo pour discuter avec la communauté DevWeek.</p>
+
+                            <form onSubmit={handleJoin} className="w-full">
+                                <input
+                                    ref={usernameInputRef}
+                                    type="text"
+                                    value={usernameInput}
+                                    onChange={(e) => setUsernameInput(e.target.value)}
+                                    placeholder="Votre nom..."
+                                    className="w-full bg-gray-800 text-white text-sm rounded-lg px-4 py-3 mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 border border-gray-700 placeholder-gray-500 transition-all"
+                                    autoFocus
+                                />
+                                <button
+                                    type="submit"
+                                    disabled={!usernameInput.trim()}
+                                    className="w-full py-3 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold shadow-md hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                >
+                                    Commencer à chatter
+                                </button>
+                            </form>
                         </div>
-
-                        {/* Users Toggle */}
-                        <button
-                            onClick={() => setShowUsers(!showUsers)}
-                            className={`p-2 rounded-lg transition-colors flex items-center gap-1.5 text-xs font-medium ${showUsers ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'}`}
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                            </svg>
-                            {onlineUsers.length}
-                        </button>
-                    </div>
-
-                    {/* Content Area */}
-                    <div className="flex-1 overflow-y-auto bg-gray-900 custom-scrollbar relative">
-
-                        {/* Messages View */}
-                        <div className={`p-4 min-h-full transition-opacity duration-300 ${showUsers ? 'opacity-0 hidden' : 'opacity-100 block'}`}>
-                            {messages.length === 0 ? (
-                                <div className="h-full flex flex-col items-center justify-center text-gray-500 space-y-2 opacity-60 mt-20">
-                                    <IconChat />
-                                    <p className="text-sm">Aucun message pour le moment</p>
+                    ) : (
+                        // CHAT INTERFACE
+                        <>
+                            {/* Header */}
+                            <div className="bg-gray-800 p-4 flex items-center justify-between border-b border-gray-700 relative z-10">
+                                <div>
+                                    <h3 className="text-white font-bold text-lg">Communauté</h3>
+                                    <div className="flex items-center gap-2 mt-1">
+                                        <span className={`w-2 h-2 rounded-full ${connectionStatus === 'connected' ? 'bg-green-400 animate-pulse' :
+                                            connectionStatus === 'connecting' ? 'bg-yellow-400' : 'bg-red-500'
+                                            }`}></span>
+                                        <span className="text-xs text-gray-400">
+                                            {connectionStatus === 'connected' ? 'En ligne' :
+                                                connectionStatus === 'connecting' ? 'Connexion...' : 'Hors ligne'}
+                                        </span>
+                                    </div>
                                 </div>
-                            ) : (
-                                messages.map((msg, idx) => (
-                                    <MessageBubble
-                                        key={idx}
-                                        message={msg}
-                                        isMe={msg.senderId === userId}
+
+                                {/* Users Toggle */}
+                                <button
+                                    onClick={() => setShowUsers(!showUsers)}
+                                    className={`p-2 rounded-lg transition-colors flex items-center gap-1.5 text-xs font-medium ${showUsers ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'}`}
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                    </svg>
+                                    {onlineUsers.length}
+                                </button>
+                            </div>
+
+                            {/* Content Area */}
+                            <div className="flex-1 overflow-y-auto bg-gray-900 custom-scrollbar relative">
+
+                                {/* Messages View */}
+                                <div className={`p-4 min-h-full transition-opacity duration-300 ${showUsers ? 'opacity-0 hidden' : 'opacity-100 block'}`}>
+                                    {messages.length === 0 ? (
+                                        <div className="h-full flex flex-col items-center justify-center text-gray-500 space-y-2 opacity-60 mt-20">
+                                            <IconChat />
+                                            <p className="text-sm">Aucun message pour le moment</p>
+                                        </div>
+                                    ) : (
+                                        messages.map((msg, idx) => (
+                                            <MessageBubble
+                                                key={idx}
+                                                message={msg}
+                                                isMe={msg.senderId === userId}
+                                            />
+                                        ))
+                                    )}
+
+                                    {/* Typing Indicator Bubble */}
+                                    {typingText && (
+                                        <div className="flex flex-col items-start mb-4 animate-pulse">
+                                            <div className="bg-gray-800 text-gray-400 rounded-2xl rounded-bl-none px-4 py-2 text-xs italic">
+                                                {typingText}
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    <div ref={messagesEndRef} />
+                                </div>
+
+                                {/* User List View */}
+                                <div className={`absolute inset-0 bg-gray-900 p-4 transition-opacity duration-300 ${showUsers ? 'opacity-100 z-20' : 'opacity-0 -z-10 pointer-events-none'}`}>
+                                    <h4 className="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-4">Utilisateurs En Ligne</h4>
+                                    <div className="space-y-2">
+                                        {onlineUsers.map((user, idx) => (
+                                            <div key={idx} className="flex items-center gap-3 p-2 rounded-lg bg-gray-800 border border-gray-700">
+                                                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold">
+                                                    {user.id.substring(0, 2).toUpperCase()}
+                                                </div>
+                                                <div className="flex-1 min-w-0">
+                                                    <p className="text-sm font-medium text-white truncate">
+                                                        {user.id === userId ? `${user.id} (Moi)` : user.id}
+                                                    </p>
+                                                    <p className="text-[10px] text-green-400">En ligne</p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            {/* Input Area */}
+                            {!showUsers && (
+                                <form onSubmit={sendMessage} className="p-3 bg-gray-800 border-t border-gray-700 flex items-center gap-2">
+                                    <input
+                                        ref={inputRef}
+                                        type="text"
+                                        value={inputText}
+                                        onChange={handleInput}
+                                        placeholder="Écrivez un message..."
+                                        className="flex-1 bg-gray-700 text-white text-sm rounded-full px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 border border-transparent transition-all"
                                     />
-                                ))
+                                    <button
+                                        type="submit"
+                                        disabled={!inputText.trim() || connectionStatus !== 'connected'}
+                                        className="p-2.5 rounded-full bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                                    >
+                                        <IconSend />
+                                    </button>
+                                </form>
                             )}
-
-                            {/* Typing Indicator Bubble */}
-                            {typingText && (
-                                <div className="flex flex-col items-start mb-4 animate-pulse">
-                                    <div className="bg-gray-800 text-gray-400 rounded-2xl rounded-bl-none px-4 py-2 text-xs italic">
-                                        {typingText}
-                                    </div>
-                                </div>
-                            )}
-
-                            <div ref={messagesEndRef} />
-                        </div>
-
-                        {/* User List View */}
-                        <div className={`absolute inset-0 bg-gray-900 p-4 transition-opacity duration-300 ${showUsers ? 'opacity-100 z-20' : 'opacity-0 -z-10 pointer-events-none'}`}>
-                            <h4 className="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-4">Utilisateurs En Ligne</h4>
-                            <div className="space-y-2">
-                                {onlineUsers.map((user, idx) => (
-                                    <div key={idx} className="flex items-center gap-3 p-2 rounded-lg bg-gray-800 border border-gray-700">
-                                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold">
-                                            {user.id.substring(5, 7).toUpperCase()}
-                                        </div>
-                                        <div className="flex-1 min-w-0">
-                                            <p className="text-sm font-medium text-white truncate">
-                                                {user.id === userId ? `${user.id} (Moi)` : user.id}
-                                            </p>
-                                            <p className="text-[10px] text-green-400">En ligne</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                    </div>
-
-                    {/* Input Area */}
-                    {!showUsers && (
-                        <form onSubmit={sendMessage} className="p-3 bg-gray-800 border-t border-gray-700 flex items-center gap-2">
-                            <input
-                                ref={inputRef}
-                                type="text"
-                                value={inputText}
-                                onChange={handleInput}
-                                placeholder="Écrivez un message..."
-                                className="flex-1 bg-gray-700 text-white text-sm rounded-full px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 border border-transparent transition-all"
-                            />
-                            <button
-                                type="submit"
-                                disabled={!inputText.trim() || connectionStatus !== 'connected'}
-                                className="p-2.5 rounded-full bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                            >
-                                <IconSend />
-                            </button>
-                        </form>
+                        </>
                     )}
                 </div>
             )}

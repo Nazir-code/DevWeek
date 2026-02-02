@@ -5,6 +5,8 @@ const wss = new WebSocket.Server({ port: port });
 
 console.log(`Chat server started on port ${port}`);
 
+const messageHistory = [];
+
 wss.on('connection', (ws) => {
     console.log('New client connected');
 
@@ -54,6 +56,12 @@ wss.on('connection', (ws) => {
                     name: parsedMessage.senderId
                 };
 
+                // 0. Send History
+                ws.send(JSON.stringify({
+                    type: 'history',
+                    messages: messageHistory
+                }));
+
                 // 1. Send Personal Bot Welcome
                 ws.send(JSON.stringify({
                     type: 'bot',
@@ -71,6 +79,14 @@ wss.on('connection', (ws) => {
 
             // Regular Messages
             parsedMessage.timestamp = new Date().toISOString();
+
+            // Store in history
+            if (parsedMessage.type === 'text') {
+                messageHistory.push(parsedMessage);
+                if (messageHistory.length > 50) {
+                    messageHistory.shift();
+                }
+            }
 
             // Broadcast to all clients
             wss.clients.forEach((client) => {
