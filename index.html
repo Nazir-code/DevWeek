@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DEVWEEK – La Semaine des Développeurs</title>
     <link rel="stylesheet" href="css/devweek.css">
-    <link rel="stylesheet" href="css/chat.css">
+
 </head>
 
 <body>
@@ -209,30 +209,18 @@
         </div>
     </footer>
 
-    <!-- Chat Widget -->
-    <button class="chat-toggle" id="chatToggle">
-        <span class="icon-open">💬</span>
-        <span class="icon-close">✕</span>
-    </button>
+    <!-- React & Tailwind Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <div class="chat-widget" id="chatWidget">
-        <div class="chat-header">
-            <h3>Communauté DEVWEEK</h3>
-            <div class="status-indicator" id="connectionStatus">
-                <span class="status-dot" style="background: #fbbf24; box-shadow: none;"></span>Connexion...
-            </div>
-        </div>
-        <div class="chat-messages" id="chatMessages">
-            <!-- Messages will appear here -->
-        </div>
-        <div class="chat-footer">
-            <input type="text" class="chat-input" id="chatInput" placeholder="Écrivez un message...">
-            <button class="chat-send" id="sendBtn">➤</button>
-        </div>
-    </div>
+    <!-- Chat Widget Root -->
+    <div id="react-chat-root" class="fixed bottom-5 right-5 z-50"></div>
 
     <script src="js/devweek.js"></script>
-    <script src="js/chat.js"></script>
+    <!-- Main Chat Implementation -->
+    <script type="text/babel" src="js/ChatWidget.js"></script>
 </body>
 
 </html>
